@@ -7,4 +7,56 @@ Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 Introduction: https://forms.gle/JJUREb7AcNcX5TXv5
 
+Project Files(nextjs)
+
+1. package.json
+		npm config file
+		scripts and dependencies
+2. node_modules folder
+		all dependencies are installed
+3. tsconfig.json
+		typescript config6
+4. eslint.config.mjs
+		eslint config
+5. next.config.js
+		nextjs config file
+		react configuration
+		api configuration
+6. public folder
+		all resources that can be accessed publicly
+		images/fonts/icons/css
+7. src folder: optional folder for the source code
+8. app folder: 
+		folder for the App Router
+		From nextjs 13 onwards
+		Inline the new features of React 18, 19: RSC, Server Actions
+9. pages folder: legacy
+		folder for the Pages Router
+		Till Nextjs 13: Client componenet, SSR(Nextjs specific feature)
+10. layout.tsx
+		Its a server component
+		Defines the app layout
+		Like the entry point
+11. page.tsx
+		Page to be rendered on the home route(http://localhost:3000)
+
+Components
+	- functional 
+	- class (deprecated from React 19)
+	
+	- client 
+	- server( introduced in React 18)
+		In Nextjs 13 the default is server component
+		Cannot have any interactivity(no user actions)
+		
+component props
+	- An object
+	- Passing data from parent to child component or vice versa
+	- props is read-only(in the child component)
+	
+		
+		
+
+	
+
 
