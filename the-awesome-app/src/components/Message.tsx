@@ -1,4 +1,9 @@
-'use client' // directive
+'use client'
+
+import { useEffect } from "react";
+
+
+ // directive
 
 type MessageProps = {
     text: string;
@@ -6,6 +11,17 @@ type MessageProps = {
 }
 
 export function Message(props : MessageProps){
+
+    //mount
+    useEffect(() => {
+        console.log("Message useEffect Mount");
+        
+        return () => {
+            console.log("Message useEffect unmount");
+        }
+    }, [])
+
+
 
     console.log("Message", props);
 

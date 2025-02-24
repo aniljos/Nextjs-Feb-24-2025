@@ -10,6 +10,7 @@ export default function Home() {
         <Message text="Next.js" color="red"/> */}
 
         <Counter initialCount={5}/>
+        {/* <Counter initialCount={10}/> */}
     </div>
   );
 }

@@ -54,6 +54,50 @@ component props
 	- Passing data from parent to child component or vice versa
 	- props is read-only(in the child component)
 	
+component state
+
+	- setState method - 2 overloads
+		-setState(updatedValue)
+		-setState(callback) = function callback(currentValue) ==> updatedValue
+	- state updates are asynchronous
+	- state updates are always batch
+		count = 5
+		setCount(count + 1);  ==> setCount(6) 
+        setCount(count + 1);  ==> setCount(6)
+		
+		setCount(currentCount => currentCount + 1); => setCount(invoke the callback) => 5 => 6
+        setCount(currentCount => currentCount + 1); => setCount(invoke the callback) => 6 => 7
+	
+component render
+	- props changes
+	- state changes
+	- parent componenet rerenders
+
+
+	
+React hooks
+	- state, lifecycle hooks, context, reference
+	
+	
+useEffect
+   -method signature
+		- useEffect(setup method, optional array of dependencies)
+		- useEffect(() => {}, [])
+   - mount
+       - useEffect(() => {}, [empty array])
+	   - Invoked after the first render
+	   - Logic
+			- API calls to fetch data from the backend
+			- Register for any window/docuemnt events
+			- DOM initializations
+   - unmount
+       - Logic
+			- Cancel the API call
+			- Unregister for any window/docuemnt events
+			- Any cleanup
+   - update
+       - useEffect(() => {}, [with dependencies])
+	
 		
 		
 
