@@ -1,6 +1,6 @@
 'use client'
 
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -10,10 +10,19 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
     const [message, setMessage]  = useState("");
     const router = useRouter();
+    const nameInputRef =  useRef<HTMLInputElement>(null);
     
+    
+    useEffect(() => {
+
+        nameInputRef.current?.focus();
+
+    }, [])
 
     async function handleLogin(evt: FormEvent<HTMLFormElement>){
          evt.preventDefault();
+
+        
 
          // clients-side validation
          if(name && password){
@@ -54,9 +63,11 @@ export default function LoginPage() {
     }
     function handleNameChange(evt: ChangeEvent<HTMLInputElement>){
 
+       
         //const value = evt.target.value;
         //setName(value);
         setName(evt.target.value);
+        console.log("name: ", nameInputRef.current?.value);
     }
     return (
         <div>
@@ -68,7 +79,8 @@ export default function LoginPage() {
             <form onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" value={name} onChange={handleNameChange}/>
+                    <input type="text" className="form-control" id="name" value={name} onChange={handleNameChange} 
+                                ref={nameInputRef}/>
                 </div>
 
                 <div className="form-group">
