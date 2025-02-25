@@ -54,6 +54,10 @@ component props
 	- An object
 	- Passing data from parent to child component or vice versa
 	- props is read-only(in the child component)
+	- <Message text="abc"/>  => props.text
+	- <Message text="abc">
+		<p>Hello</p>         => props.children
+	  </Message>
 	
 component state
 
@@ -68,6 +72,10 @@ component state
 		
 		setCount(currentCount => currentCount + 1); => setCount(invoke the callback) => 5 => 6
         setCount(currentCount => currentCount + 1); => setCount(invoke the callback) => 6 => 7
+	- state must be treated as immutable
+		- create a copy, change the copy,and update the state with the copy
+	
+	
 	
 component render
 	- props changes
@@ -98,8 +106,50 @@ useEffect
 			- Any cleanup
    - update
        - useEffect(() => {}, [with dependencies])
-	
+	   
+	   
+Design & Optimization
+	- Components -reuseable and modular(smaller component)
+		- easy maintain & testing
+		- better for optimization
+	Optimization	
+		- React.memo
+		- Hooks
+			-useCallback
 		
+Forms
+	- controller input
+			- reactive
+			- state(useState hook) is bound to the form element(input/checkbox,select/radio/textarea)
+			- binding: value attribute to set the value to the form field
+			- binding: onChange event to get the value
+	- uncontroller input
+			- non-reactive
+			- ref(useRef hook) is attached the form field
+			- using the reference, get or set the value
+			- similar to document.getElementById(#formfieldId)
+	
+HTTP Status Codes
+	100 - Information
+	200(200, 201, 204) - Success
+	300 - Redirect
+	
+	400(400, 401, 403, 404) - Client error
+	500(500, 503) - Server error
+	
+EditProductPage(Assignment)
+
+	- fetch the product based on the id(product id) : GET http://localhost:9000/products/{id}
+	- populate the form fields with the values => controlled inputs
+	- on save btn: 
+			- save to the server: PUT http://localhost:9000/products/4 and post the data
+				- success: navigate back to /products
+				- failed: show an error message
+	- on cancel
+		navigate back to /products
+	- hint(the state will have a product(immutable))
+
+				
 		
 
 	

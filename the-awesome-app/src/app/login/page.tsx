@@ -79,7 +79,7 @@ export default function LoginPage() {
             <form onSubmit={handleLogin}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" value={name} onChange={handleNameChange} 
+                    <input type="text" name="a" className="form-control" id="name" value={name} onChange={handleNameChange} 
                                 ref={nameInputRef}/>
                 </div>
 
