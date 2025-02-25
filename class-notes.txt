@@ -6,6 +6,7 @@ REST API Mock: https://github.com/aniljos/REST-API-Mock
 Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 Introduction: https://forms.gle/JJUREb7AcNcX5TXv5
+Quiz 1: https://forms.gle/FMLivhhbbNVF3xoN6
 
 Project Files(nextjs)
 
