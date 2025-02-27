@@ -1,12 +1,11 @@
 'use client'
 
 import axios from "axios";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Product } from "@/model/Product";
 import { useRouter } from "next/navigation";
 import { ProducView } from "./ProductView";
 import { useTitle } from "@/hooks/useTitle";
-import { useProducts } from "@/hooks/useProducts";
 
 const baseUrl = "http://localhost:9000/products";
 
@@ -15,13 +14,29 @@ const baseUrl = "http://localhost:9000/products";
 export default function ListProductsPage(){
 
    
-    
+    const [products, setProducts] = useState<Product[]>([]);
     const [isMessageVisible, setMessageVisible] = useState(false);
     const router = useRouter();
     useTitle("List-Products");
-    const {products, setProducts} = useProducts(baseUrl);
-   
-    
+
+    useEffect(() => {
+
+        fetchProducts();
+
+    }, [])
+
+    async function fetchProducts(){
+
+        try {
+            
+            const response = await axios.get<Product[]>(baseUrl);
+            console.log("products", response.data);
+            setProducts(response.data);
+
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
 
     const deleteProduct = useCallback(async (product: Product) => {
 

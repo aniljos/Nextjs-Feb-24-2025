@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useTitle } from "@/hooks/useTitle";
 
 export default function LoginPage() {
 
@@ -11,11 +12,13 @@ export default function LoginPage() {
     const [message, setMessage]  = useState("");
     const router = useRouter();
     const nameInputRef =  useRef<HTMLInputElement>(null);
+    useTitle("Login");
     
-    
+
     useEffect(() => {
 
         nameInputRef.current?.focus();
+        //document.title = document.title + " Login";
 
     }, [])
 
