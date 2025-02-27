@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import AppBar from "@/components/AppBar";
+import { ReduxProvider } from "@/redux/ReduxProvider";
+
+
 
 
 const geistSans = Geist({
@@ -28,15 +31,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
-        <div className="container">
-          
-          <AppBar/>
+        <ReduxProvider>
+          <div className="container">
 
-          <main>
-            {children}
-          </main>
+            <AppBar />
 
-        </div>
+            <main>
+              {children}
+            </main>
+
+          </div>
+        </ReduxProvider>
 
       </body>
     </html>
