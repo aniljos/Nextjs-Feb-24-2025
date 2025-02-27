@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useTitle } from "@/hooks/useTitle";
+import { useDispatch } from "react-redux";
 
 export default function LoginPage() {
 
@@ -13,6 +14,7 @@ export default function LoginPage() {
     const router = useRouter();
     const nameInputRef =  useRef<HTMLInputElement>(null);
     useTitle("Login");
+    const dispatch = useDispatch();
     
 
     useEffect(() => {
@@ -46,12 +48,20 @@ export default function LoginPage() {
                 const resp = await axios.post(url, {name, password});
                 console.log("resp", resp);
                 setMessage("");
-                router.push("/");
+                router.push("/products");
+                dispatch({type: "login", 
+                            payload: { 
+                                isAuthenticated: true, 
+                                username: name,
+                                accessToken: resp.data.accessToken,
+                                refreshToken: resp.data.refreshToken
+                            }})
 
             }
             catch(errResponse){
                 console.log("err", errResponse);
                 setMessage("Invalid Credentials");
+                dispatch({type: "logout"});
             }
 
         
