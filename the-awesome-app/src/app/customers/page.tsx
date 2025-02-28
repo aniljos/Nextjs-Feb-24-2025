@@ -1,12 +1,16 @@
 import { Customer } from "@/model/Customer";
-import axios from "axios";
+import Link from "next/link";
+//import axios from "axios";
 
 export default async function CustomersPage(){
 
     //api call
     const url = "http://localhost:9000/customers";
-    const response = await axios.get<Customer[]>(url);
-    const customers = response.data;
+    //const response = await axios.get<Customer[]>(url);
+    //const customers = response.data;
+
+    const response = await fetch(url, {cache: 'no-cache'}); //fetch(url, {method: "GET"})
+    const customers = await response.json() as Customer[];
 
     return (
         <div>
@@ -26,7 +30,7 @@ export default async function CustomersPage(){
                         return (
                             <tr key={customer.id}>
                                  <td>{customer.id}</td>  
-                                 <td>{customer.name}</td>  
+                                 <td><Link href={"/customers/" + customer.id}>{customer.name}</Link> </td>  
                                  <td>{customer.location}</td>   
                             </tr>
                         )
