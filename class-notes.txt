@@ -7,6 +7,8 @@ Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 Introduction: https://forms.gle/JJUREb7AcNcX5TXv5
 Quiz 1: https://forms.gle/FMLivhhbbNVF3xoN6
+Quiz 2: https://forms.gle/jA3ieHJHngoBYXih9
+Quiz 3: https://forms.gle/J1R9yEvVF8ALPted9
 
 Project Files(nextjs)
 
@@ -116,6 +118,16 @@ Design & Optimization
 		- React.memo
 		- Hooks
 			-useCallback
+			-useMemo
+		- Virtual DOM
+	Design
+		- HOC (Higher Order Component)- Wrapper on a  react component: 
+				-Render Hijacking, Injecting props
+				- Example: React.memo
+			
+		- Custom Hooks
+			- function that uses other React hooks
+			- Reuseablity amd modularity
 		
 Forms
 	- controller input
@@ -148,7 +160,82 @@ EditProductPage(Assignment)
 	- on cancel
 		navigate back to /products
 	- hint(the state will have a product(immutable))
+	
+State Management
+	- localStorage(persistant)
+	- sessionStorage( non-persistant) -only for sessionStorage
+	
+	- Memory
+		- react context or redux
+		
+		
+	
+	
+	
+Redux
+    - install
+		-redux, react-redux, @reduxjs/toolkit
+		- npm install @reduxjs/toolkit react-redux
+	- action
+		- its as object with a type property
+		- {type: "save_token", token:"asdasdada"}
+		- {type: clear_token}
+	-Reducer
+		- A function
+		- Receives and process the actions and update the store
+		- Must be synchronous
+		- State must be treated as immutable
+	- Store
+	
+	- Middleware
+	    - intercepts the action for any preprocessing before the reducer acts on its
+		- logging, validations, async operations
+		- Async middleware library: Redux Thunk, Redux Saga
+	
+	- Redux Toolkit
+		- Action creators- helper methods to simplfy the creation of actions
+		- Slices: 
+			- In slices state is mutable
+			- Generate the reducer and the  actions creators
+	- Redux persist
+		- To persist across sessions(local storage)
+		
 
+react-redux
+	- Provider component - allows to integrate Redux with the react application
+	- Hooks	
+		- useDispatch: returns a dispatch function(dispatch an action)
+		- useSelector: fetch data from the store(select)
+		- useStore: returns a handle to the store
+		
+React Context
+	- Sharing data between components
+	- Low-level API
+	- Multiple contexts(store)
+	- Hook 
+		-useContext: fetch the context data.
+		
+		- useReducer
+		
+Assignments
+	- Implement the Gadget Store and Viewcart using React Context
+			-Using the useReducer hook
+			
+			
+SSG & SSR(react server components)
+
+	- The default is SSG
+	- API call to static endpoints - SSG
+	- The Component receives props - SSR
+	- The API call to a non-static endpoint - SSR
+	- The API call(using fetch) has {cache: "no-cache"} - SSR
+	- Use any dynamic apis(headers, cookies) - SSR
+	- Force SSR - export const dynamic = 'force-dynamic' -- SSR
+		
+		
+		
+
+	
 				
 		
 
