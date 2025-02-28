@@ -1,5 +1,6 @@
 import { Supplier } from "@/model/Supplier";
 import { SearchSupplier } from "./SearchSupplier";
+import Link from "next/link";
 
 export default async function SupplierPage() {
 
@@ -44,6 +45,8 @@ export default async function SupplierPage() {
     return (
         <div>
             <h3>Suppliers</h3>
+
+            <Link href="/suppliers/add">Add Supplier</Link>
 
             <SearchSupplier fetchData={fetchSuppliers} />
         </div>
