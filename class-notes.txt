@@ -231,10 +231,21 @@ SSG & SSR(react server components)
 	- The API call(using fetch) has {cache: "no-cache"} - SSR
 	- Use any dynamic apis(headers, cookies) - SSR
 	- Force SSR - export const dynamic = 'force-dynamic' -- SSR
+	
+Backend API
+	- Any language or framework(spring, .net etc)
+    = JavaScript(Node.js)
+		- Http Module
+		- Express Framework
+		
+		- Next.js API 
 		
 		
 		
+		
+Tutorials: https://www.youtube.com/@DaveGrayTeachesCode
 
+LinkedIn Profile: https://www.linkedin.com/in/anil-joseph-consultant/
 	
 				
 		
