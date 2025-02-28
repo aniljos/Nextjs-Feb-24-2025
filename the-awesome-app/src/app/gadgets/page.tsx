@@ -7,8 +7,11 @@ import { useDispatch } from 'react-redux';
 
 
 const baseUrl = "http://localhost:9000/products";
+
 function GadgetStore(){
 
+ 
+    console.log("baseUrl", baseUrl);
     const [products, setProducts] = useState<Product[]>([]);
     const dispatch = useDispatch();
     
