@@ -1,8 +1,37 @@
 import { Customer } from "@/model/Customer";
 import Link from "next/link";
+import { Suspense } from "react";
 //import axios from "axios";
 
-export default async function CustomersPage(){
+export default async function CustomerListing(){
+
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    return (
+        <div>
+            <h2>Customers Listing</h2>
+            <p>This pages uses suspense and streaming</p>
+            <Suspense fallback={<div className="alert alert-primary">Loading the Customers data(10secs)...</div>}>
+                <CustomersPage interval={10000}/>
+            </Suspense>
+
+            <Suspense fallback={<div className="alert alert-primary">Loading the Customers data(7secs)...</div>}>
+                <CustomersPage interval={7000}/>
+            </Suspense>
+            
+        </div>
+    )
+}
+
+type CustomersPageProps = {
+    interval: number
+}
+export async function CustomersPage(props: CustomersPageProps){
+
+    //simuate an error
+    //throw new Error("error in customers");
+
+    //simulate a delay
+    await new Promise(resolve => setTimeout(resolve, props.interval));
 
     //api call
     const url = "http://localhost:9000/customers";
@@ -14,7 +43,7 @@ export default async function CustomersPage(){
 
     return (
         <div>
-            <h3>Customers</h3>
+            <h4>Customers</h4>
             <p>This is a React Server Component</p>
 
             <table className="table">

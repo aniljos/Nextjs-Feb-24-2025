@@ -17,7 +17,8 @@ function GadgetStore(){
     
     useEffect(() => {
 
-        fetchProducts();
+      fetchProducts();
+
 
     }, [])
 
@@ -27,6 +28,7 @@ function GadgetStore(){
             const resp = await axios.get<Product[]>(baseUrl);
             setProducts(resp.data);
             console.log("resp:", resp);
+            
 
         } catch (error) {
             console.log("error:", error);
